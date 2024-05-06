@@ -36,6 +36,6 @@ def get_creds():
             print("refresh successful")
         return creds
 
-# if __name__ == "__main__":
-#     main()
-#I think running with this code debugs it. 
+if __name__ == "__main__":
+    main()
+
