@@ -3,11 +3,12 @@ import DataMapper from './Chart';
 import fetchData from './fetchData';
 
 
-const Expense = ({data, setData}) => {
+const Expense = ({setData, data}) => {
 
     useEffect(() => {
         fetchData()
-            .then(data => setData(data)).catch(error => console.error("can't catch promise", error));
+            .then(fetchedData => setData(fetchedData))
+            .catch(error => console.error("can't catch promise", error));
     }, [setData]);
 
     return (
