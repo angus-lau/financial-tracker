@@ -1,7 +1,6 @@
 import React from 'react';
 
 const DataMapper = ({ jsonData }) => {
-    console.log('DataMapper jsonData:', jsonData);
 
     if (!Array.isArray(jsonData)) {
         return <div>No data available</div>;

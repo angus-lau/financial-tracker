@@ -1,11 +1,12 @@
 import React from 'react';
 import fetchNewExpenses from './RefreshNewExpenses';
-import fetchData from './Expense';
+import fetchData from './fetchData';
 
     function Button() {
         const callOtherFunctions = () => {
             fetchData();
             fetchNewExpenses();
+            window.location.reload();
         }
         return (
             <>
