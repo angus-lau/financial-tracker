@@ -1,23 +1,21 @@
 import credential_handler
 import get_expenses
 from googleapiclient.discovery import build
+import gspread
 
 
 
-def create_expenses(_values):
+def create_expenses(date: str, item: str, amount: str, category: str):
     SPREADSHEET_ID = "1rnYyBf3xr2Y8NCDSPtEJFGWfHBRcup00bumLbctTfkA"
+
     creds = credential_handler.get_creds()
-    service = build("sheets", "v4", credentials=creds)
-    values = _values
+    client = gspread.authorize(creds)
+    workbook = client.open_by_key(SPREADSHEET_ID)
+    sheet = workbook.worksheet("Sheet1")
     current_values = get_expenses.get_values()
+    next_row = str(len(current_values) + 2)
+    sheet.update_acell("A" + next_row, date)
+    sheet.update_acell("B" + next_row, item)
+    sheet.update_acell("C" + next_row, amount)
+    sheet.update_acell("D" + next_row, category)
 
-    body = {"values": values}
-
-    next_row = len(current_values) + 2
-
-    service.spreadsheets().values().update(
-        spreadsheetId = SPREADSHEET_ID, 
-        range = f'Sheet1!A{next_row}', 
-        valueInputOption="USER_ENTERED", 
-        body=body
-        ).execute()

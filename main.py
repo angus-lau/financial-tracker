@@ -46,11 +46,29 @@ async def resync_new_emails():
     return create_expense.create_expenses(unreceived_emails)
 
 
-@app.post("/create-expense")
-def create_new_expense(expense_type: str):
-    expense = gmail_reader.fetch_email_data()
-    # expense[0].append("expense_type") ASK ASIM
-    return create_expense.create_expenses(expense)
+@app.get("/get-curr-balance")
+def get_curr_balanace():
+    return get_income() + get_expenditures()
+
+@app.get("/get-expense-amount")
+def get_expenditures():
+    amount = 0
+    expenses = get_expenses.get_values()
+    for expense in expenses:
+        for index, price in enumerate(expense):
+            if index == 2:
+                    amount += float(price[1:])
+    return amount
+
+@app.get("/get-income")
+def get_income():
+    expenses = get_expenses.get_values()
+    for expense in expenses:
+        for index, price in enumerate(expense):
+            if index == 2:
+                if price[0] == "-":
+                    amount += float(price[2:])
+    return amount
 
 app.add_middleware(
     CORSMiddleware,
