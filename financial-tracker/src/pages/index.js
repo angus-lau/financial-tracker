@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Expense from '@/Components/Expense';
-import Button from '../Components/RefreshButton';
+import Buttons from '../Components/RefreshButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ExpenseModal from '@/Components/ExpenseModal';
 
 const App = () => {
     const [data, setData] = useState({});
@@ -8,7 +10,8 @@ const App = () => {
     return (
         <div>
             <Expense setData={setData} data={data} />
-            <Button />
+            <Buttons />
+            <ExpenseModal/>
         </div>
     );
 };

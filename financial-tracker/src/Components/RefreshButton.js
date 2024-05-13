@@ -1,8 +1,9 @@
 import React from 'react';
 import fetchNewExpenses from './RefreshNewExpenses';
 import fetchData from './fetchData';
+import Button from 'react-bootstrap/Button';
 
-    function Button() {
+    function Buttons() {
         const callOtherFunctions = () => {
             fetchData();
             fetchNewExpenses();
@@ -10,13 +11,12 @@ import fetchData from './fetchData';
         }
         return (
             <>
-                <button 
+                <Button 
                 onClick={ callOtherFunctions }
-                style={{width: "100px", height: "10px"}}
                 children="Refresh"
                 /> 
             </>
         )
     };
 
-export default Button
+export default Buttons
