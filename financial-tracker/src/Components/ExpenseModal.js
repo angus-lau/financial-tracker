@@ -3,11 +3,43 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function ExpenseModal() {
+function ExpenseModal(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [date, setDate] = useState('')
+  const [expense, setExpense] = useState('')
+  const [amount, setAmount] = useState('')
+  const [category, setCategory] = useState('')
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    switch (name) {
+      case 'date':
+        setDate(value);
+        break;
+      case 'expense':
+        setExpense(value);
+        break;
+      case 'amount':
+        setAmount(value);
+        break;
+      case 'category':
+        setCategory(value);
+        break;
+        default:
+        break;
+
+    }
+  };
+  
+  const handleSubmit = () => {
+    console.log("Data:", date, expense, amount, category);
+    handleClose();
+  };
+
 
   return (
     <>
@@ -30,6 +62,9 @@ function ExpenseModal() {
           <Form.Label>Date</Form.Label>
           <Form.Control
             type="text"
+            name="date"
+            value={date}
+            onChange={handleInput}
             placeholder="24 May 2024"
             autoFocus
           />
@@ -39,7 +74,10 @@ function ExpenseModal() {
           <Form.Label>Expense</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Fuel"
+            placeholder="Esso"
+            name="expense"
+            value={expense}
+            onChange={handleInput}
           />
         </Form.Group>
 
@@ -48,6 +86,9 @@ function ExpenseModal() {
           <Form.Control
             type="text"
             placeholder="100.00"
+            name="amount"
+            value={amount}
+            onChange={handleInput}
           />
         </Form.Group>
 
@@ -56,6 +97,9 @@ function ExpenseModal() {
           <Form.Control
             type="text"
             placeholder="Vehicle"
+            name="category"
+            value={category}
+            onChange={handleInput}
           />
         </Form.Group>
 
@@ -64,7 +108,7 @@ function ExpenseModal() {
           <Button variant="secondary" onClick={handleClose} className='btn btn-danger'>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose} className='btn btn-success'>
+          <Button variant="primary" onClick={handleSubmit} className='btn btn-success'>
             Submit
           </Button>
         </Modal.Footer>
