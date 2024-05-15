@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import PostNewTransaction from './PostNewTransaction';
 
 function ExpenseModal(props) {
   const [show, setShow] = useState(false);
@@ -35,8 +36,9 @@ function ExpenseModal(props) {
     }
   };
   
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("Data:", date, expense, amount, category);
+    PostNewTransaction(date, expense, amount, category);
     handleClose();
   };
 

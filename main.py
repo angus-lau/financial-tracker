@@ -45,6 +45,9 @@ async def resync_new_emails():
             unreceived_emails.append(email)
     return create_expense.create_expenses(unreceived_emails)
 
+@app.post("/post-new-expense")
+def post_new_expense(date: str, expense: str, amount: str, category: str):
+    return create_expense.create_expenses(date, expense, amount, category)
 
 @app.get("/get-curr-balance")
 def get_curr_balanace():

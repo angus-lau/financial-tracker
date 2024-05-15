@@ -5,7 +5,7 @@ import gspread
 
 
 
-def create_expenses(date: str, item: str, amount: str, category: str):
+def create_expenses(date: str, expense: str, amount: str, category: str):
     SPREADSHEET_ID = "1rnYyBf3xr2Y8NCDSPtEJFGWfHBRcup00bumLbctTfkA"
 
     creds = credential_handler.get_creds()
@@ -15,7 +15,7 @@ def create_expenses(date: str, item: str, amount: str, category: str):
     current_values = get_expenses.get_values()
     next_row = str(len(current_values) + 2)
     sheet.update_acell("A" + next_row, date)
-    sheet.update_acell("B" + next_row, item)
+    sheet.update_acell("B" + next_row, expense)
     sheet.update_acell("C" + next_row, amount)
     sheet.update_acell("D" + next_row, category)
 
