@@ -87,7 +87,7 @@ function ExpenseModal(props) {
           <Form.Label>Amount</Form.Label>
           <Form.Control
             type="text"
-            placeholder="100.00"
+            placeholder="$100.00"
             name="amount"
             value={amount}
             onChange={handleInput}

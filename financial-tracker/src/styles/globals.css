@@ -10,3 +10,7 @@ body {
   margin-left: 1vw;
   width: 20vw;
 }
+
+.btn.btn-primary{
+  width: 50%;
+}

@@ -41,8 +41,8 @@ async def resync_new_emails():
     new_emails =  gmail_reader.fetch_email_data()
     unreceived_emails = []
     for email in new_emails:
-        # Loop through all emails and if its not already in the curren list, add it into the unreceived_emails list
-        if not (email in current_list):
+        # Loop through all emails and if its not already in the current list, add it into the unreceived_emails list
+        if not (email.append("UNDEFINED") in current_list):
             unreceived_emails.append(email)
     return create_expense.create_expenses(unreceived_emails[0][0], unreceived_emails[0][1], unreceived_emails[0][2], "UNDEFINED")
 
