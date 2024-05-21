@@ -11,6 +11,15 @@ body {
   width: 20vw;
 }
 
+#react-box {
+  width: 25vw;
+}
+
 .btn.btn-primary{
   width: 50%;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
 }
