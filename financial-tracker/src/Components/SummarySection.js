@@ -1,4 +1,6 @@
 import React from 'react';
+import { alignPropType } from 'react-bootstrap/esm/types';
+import SemiCircleProgress from 'react-progressbar-semicircle';
 
 const Summary = ({ availableSpend, totalLimit, spent }) => {
   const remainingSpend = totalLimit - spent;
@@ -14,6 +16,10 @@ const Summary = ({ availableSpend, totalLimit, spent }) => {
           <span style={styles.availableSpendAmount}>+${remainingSpend.toFixed(2)}</span>
           <span style={styles.totalLimit}>${totalLimit} Limit</span>
         </div>
+      </div>
+      <div style={styles.btDiv}>
+      <SemiCircleProgress percentage={33} strokeWidth={30} stroke={"orange"}/>
+      <p style={styles.p1}>$150.42</p>
       </div>
     </div>
   );
@@ -31,10 +37,24 @@ const styles = {
     height: '25vh',
     borderBottom: '1px solid #ddd',
   },
+  p1: {
+    position: 'absolute',
+    top: '30%',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  btDiv: {
+    display: 'flex',
+    position: 'relative',
+  },
   summary: {
     padding: '20px',
     borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
     width: '300px',
     textAlign: 'left'
   },
