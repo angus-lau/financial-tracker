@@ -1,5 +1,4 @@
 import React from 'react';
-import { alignPropType } from 'react-bootstrap/esm/types';
 import SemiCircleProgress from 'react-progressbar-semicircle';
 
 const Summary = ({ availableSpend, totalLimit, spent }) => {

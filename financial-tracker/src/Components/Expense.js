@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataMapper from './Chart';
 import fetchData from './fetchData';
 
-
-const Expense = ({setData, data}) => {
+const Expense = ({ selectedCategory }) => {
+  console.log(selectedCategory);
+  const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetchData()
+        fetchData(selectedCategory)
             .then(fetchedData => {
         const transformedData = fetchedData.map(item => {
             if (item.length === 3) {
