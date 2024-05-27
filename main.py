@@ -65,6 +65,15 @@ def get_expenditures():
                     amount += float(price[1:])
     return amount
 
+@app.get("/get-x-expenditure")
+def get_x_expenditure(type: str):
+    type_expenditure = []
+    expenses = get_expenses.get_values()
+    for expense in expenses:
+        if (expense[3].lower() == type.lower()):
+            type_expenditure.append(expense)
+    return type_expenditure
+
 @app.get("/get-income")
 def get_income():
     expenses = get_expenses.get_values()
