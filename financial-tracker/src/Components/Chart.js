@@ -2,14 +2,14 @@ import React from 'react';
 import TransactionItem from './TransactionItem';
 
 const DataMapper = ({ jsonData }) => {
+  console.log(jsonData);
 
+  if (!Array.isArray(jsonData)) {
+    return <div>No data available</div>;
+  }
 
-    if (!Array.isArray(jsonData)) {
-        return <div>No data available</div>;
-    }
-
-    return (
-        <div>
+  return (
+    <div>
       {jsonData.map((item, index) => (
         <TransactionItem
           key={index}
@@ -19,8 +19,7 @@ const DataMapper = ({ jsonData }) => {
         />
       ))}
     </div>
-    );
+  );
 };
 
 export default DataMapper;
-

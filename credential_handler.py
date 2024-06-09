@@ -36,6 +36,6 @@ def get_creds():
             print("refresh successful")
         return creds
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 

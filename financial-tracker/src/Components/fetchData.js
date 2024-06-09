@@ -1,6 +1,6 @@
 const fetchData = async (selectedCategory) => {
-
-    if (selectedCategory == 'All') {
+    
+    if (selectedCategory == 'all') {
     try {
         const response = await fetch('http://127.0.0.1:8000/get-expenses');
         const responseData = await response.json();
