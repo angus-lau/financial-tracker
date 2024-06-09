@@ -42,9 +42,8 @@ async def resync_new_emails():
     unreceived_emails = []
     for email in new_emails:
         # Loop through all emails and if its not already in the current list, add it into the unreceived_emails list
-        if not (email in current_list):
+        if not any(existing[:2] == email[:2] for existing in current_list):
             unreceived_emails.append(email)
-            current_list.append(unreceived_emails[0][0], unreceived_emails[0][1], unreceived_emails[0][2], "UNDEFINED")
     return create_expense.create_expenses(unreceived_emails[0][0], unreceived_emails[0][1], unreceived_emails[0][2], "UNDEFINED")
 
 @app.post("/post-new-expense")
