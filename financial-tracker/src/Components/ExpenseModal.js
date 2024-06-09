@@ -57,9 +57,6 @@ function ExpenseModal(props) {
           <Modal.Title>Expense</Modal.Title>
         </Modal.Header>
 
-
-        <Modal.Body>Manually enter any expense.</Modal.Body>
-
         <Form.Group className="mb-3" controlId="expenseModal.ControlInput1">
           <Form.Label>Date</Form.Label>
           <Form.Control
