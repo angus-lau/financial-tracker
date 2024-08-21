@@ -25,6 +25,7 @@ def fetch_email_data():
     mail_ids = message_numbers_list[0].decode("utf-8").split()
 
     alt_mail_ids = [mail_ids[-1]]
+    print(alt_mail_ids)
     email_response = []
 
     for mail_id in alt_mail_ids:
